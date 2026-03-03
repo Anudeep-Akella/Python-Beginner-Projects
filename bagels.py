@@ -24,26 +24,27 @@ def main():
    while True:
         thought = secretNumber()
         print("I have thought a number")
-        print(f"You have {MAX_GUESS}guesses to try")
+        print(f"You have {MAX_GUESS} guesses to try")
         numGuess = 1
-        while numGuess <=MAX_GUESS:
+        while numGuess <= MAX_GUESS:
             guess = ''
             while len(guess) != NUM_DIGITS or not guess.isdecimal():
                 print(f"Guess #{numGuess}:")
                 guess = input("> ")
             
-            clues = clues(guess,thought)
+            clues = getclues(guess,thought)
             print(clues)
             numGuess += 1
+
             if guess == thought:
                 break
             if numGuess > MAX_GUESS:
                 print("You ran out of guessess.")
                 print(f"The answer was {thought}.")
 
-            print("Do you want to play again?(yes or no)")
-            if not input('>').lower().startswith('y'):
-                break
+        print("Do you want to play again?(yes or no)")
+        if not input('>').lower().startswith('y'):
+            break
    print("Thank you for playing")
             
 
@@ -62,7 +63,8 @@ def secretNumber():
 
     return secretnum
 
-def clues(guess,thought):
+def getclues(guess,thought):
+    """ A Funtion for getting the clues when the number is entered by the user."""
     if guess == thought:
         return "Congratulations! You got it!"
 
@@ -70,14 +72,14 @@ def clues(guess,thought):
     for i in range(len(guess)):
         if guess[i] == thought[i]:
             clues.append('Fermi')
-        elif guess[i] in thought[i]:
+        elif guess[i] in thought:
             clues.append('Pico')
 
-    if not clues:
-        return 'Bages!'
+    if len(clues)==0:
+        return 'Bagels!'
 
     else:
-
-        return ''.join(clues)
+        clues.sort()
+        return ' '.join(clues)
             
 main()
