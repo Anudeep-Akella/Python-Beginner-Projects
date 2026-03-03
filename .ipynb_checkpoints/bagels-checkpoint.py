@@ -21,30 +21,14 @@ def main():
 .
          For example, if the secret number was 248 and your guess was 843, the
         clues would be Fermi Pico.''')
-   while True:
+    while True:
         thought = secretNumber()
         print("I have thought a number")
         print(f"You have {MAX_GUESS}guesses to try")
         numGuess = 1
         while numGuess <=MAX_GUESS:
             guess = ''
-            while len(guess) != NUM_DIGITS or not guess.isdecimal():
-                print(f"Guess #{numGuess}:")
-                guess = input("> ")
-            
-            clues = clues(guess,thought)
-            print(clues)
-            numGuess += 1
-            if guess == thought:
-                break
-            if numGuess > MAX_GUESS:
-                print("You ran out of guessess.")
-                print(f"The answer was {thought}.")
-
-            print("Do you want to play again?(yes or no)")
-            if not input('>').lower().startswith('y'):
-                break
-   print("Thank you for playing")
+            while(len(guess
             
 
 
@@ -78,6 +62,6 @@ def clues(guess,thought):
 
     else:
 
-        return ''.join(clues)
+        return ''join(clues)
             
 main()
