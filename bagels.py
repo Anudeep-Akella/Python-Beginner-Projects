@@ -48,9 +48,6 @@ def main():
    print("Thank you for playing")
             
 
-
-
-
 def secretNumber():
     """A function to get the secret number that is randomly selected selected by the program.
         It returns the number."""
@@ -82,4 +79,5 @@ def getclues(guess,thought):
         clues.sort()
         return ' '.join(clues)
             
-main()
+if __name__ == "__main__":
+    main()
