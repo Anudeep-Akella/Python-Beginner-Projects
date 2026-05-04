@@ -58,7 +58,7 @@ for i,birthday in enumerate(birthdays):
         #Display a comma for each birthday after the first birthday
         print(', ',end='')
     monthName = MONTHS[birthday.month - 1]
-    dateText = f'{monthName}{match.day}'
+    dateText = f'{monthName}{birthday.day}'
     print(dateText,end='')
 print()
 print()
